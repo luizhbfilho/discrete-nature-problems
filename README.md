@@ -12,6 +12,6 @@ f(x) = 2 * x + 1
 
 g(x) = x ^ 2 + 1
 
-**Link para o Replit: https://replit.com/@luizhbfilho/discrete-nature-problems**
+**Link para o Replit: https://replit.com/@luizhbfilho/functions-algorithm**
 
 </div>
