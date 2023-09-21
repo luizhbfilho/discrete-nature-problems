@@ -1,24 +1,43 @@
-def f(x): 
-    return x ** 2;
+def composite_function(function1, function2, value):
+    inner_value = calculate_function(function2, value)
+    return calculate_function(function1, inner_value)
 
-def g(x):
-    return x - 1;
+def calculate_function(function_str, val):
+    return eval(function_str.replace('x', str(val)))
 
-def g_of_f(x):
-    return g(f(x))  # (g ° f)(x)
+def main():
+    print("Insira a função f(x):")
+    f_str = input("f(x) = ").replace("^", "**")
+    print("Insira a função g(x):")
+    g_str = input("g(x) = ").replace("^", "**")
 
-def g_of_g(x):
-    return g(g(x))  # (g ° g)(x)
+    while True:
+        print("\nEscolha a função composta a ser calculada:")
+        print("1. (g ° f)(x)")
+        print("2. (f ° g)(x)")
+        print("3. (f ° f)(x)")
+        print("4. (g ° g)(x)")
+        print("5. Sair")
+        choice = int(input())
 
-def f_of_f(x):
-    return f(f(x))  # (f ° f)(x)
+        if choice == 5:
+            break
 
-def f_of_g(x):
-    return f(g(x))  # (f ° g)(x)
+        value = int(input("\nInsira o valor de x: "))
 
-x = 4
+        if choice == 1:
+            result = composite_function(g_str, f_str, value)
+            print(f"(g ° f)({value}) = {result}")
+        elif choice == 2:
+            result = composite_function(f_str, g_str, value)
+            print(f"(f ° g)({value}) = {result}")
+        elif choice == 3:
+            result = composite_function(f_str, f_str, value)
+            print(f"(f ° f)({value}) = {result}")
+        elif choice == 4:
+            result = composite_function(g_str, g_str, value)
+            print(f"(g ° g)({value}) = {result}")
 
-print(f"g(f({x})) = {g_of_f(x)}")
-print(f"g(g({x})) = {g_of_g(x)}")
-print(f"f(f({x})) = {f_of_f(x)}")
-print(f"f(g({x})) = {f_of_g(x)}")
+if __name__ == "__main__":
+    main()
+
