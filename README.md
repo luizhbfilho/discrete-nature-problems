@@ -9,6 +9,7 @@ Este trabalho consiste em um algoritmo que recebe como entrada funções f(x) e 
 **Exemplo:** 
 
 f(x) = 2 * x + 1
+
 g(x) = x ^ 2 + 1
 
 </div>
